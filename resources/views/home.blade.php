@@ -33,7 +33,7 @@
                             {{ $repair->modelo }}
                         </td>
                         <td style="width= 10rem">
-                            {{-- <a href="{{ route('repairs.edit', $repair->id) }}" class="btn btn-sm btn-primary">Editar</a> --}}
+                            <a href="{{ route('repairs.edit', $repair->id) }}" class="btn btn-sm btn-primary">Editar</a>
                             <a href="{{ route('repairs.show', $repair->id) }}" class="btn btn-sm btn-warning">Detalhes</a>
                             {{-- <div class="btn-group">
                                 <form action="{{ route('repairs.destroy', $repair->id) }}" method="POST">

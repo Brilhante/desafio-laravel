@@ -26,9 +26,9 @@ class StoreUpdateCar extends FormRequest
         $id = $this->segment(2);
         
         return [
-            'marca' => "required|min:3|max:255|unique:cars,marca,{$id},id",
-            'modelo' => "required|min:3|max:255|unique:cars,modelo,{$id},id",
-            'versao' => "required|min:3|max:255|unique:cars,versao,{$id},id",
+            'marca' => "required|min:3|max:255|:cars,marca,{$id},id",
+            'modelo' => "required|min:3|max:255|:cars,modelo,{$id},id",
+            'versao' => "required|min:3|max:255|:cars,versao,{$id},id",
             // 'email' => "required|email|unique:cars,email,{$id},id",
         ];
     }

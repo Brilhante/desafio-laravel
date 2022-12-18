@@ -12,7 +12,7 @@
             @include('includes.alerts')
             <ul>
                 <li>
-                    <strong>Data do Agendamento:</strong> {{ $repair->data_agendada }}
+                    <strong>Data do Agendamento:</strong> {{ Carbon\Carbon::parse($repair->data_agendada)->format('d/m/Y') }}
                 </li>
                 <li>
                     <strong>Tipo de Manutenção:</strong> {{ $repair->tipo_manutencao == 1 ? 'Preventiva' : 'Corretiva' }}

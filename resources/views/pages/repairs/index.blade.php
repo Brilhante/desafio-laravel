@@ -24,7 +24,7 @@
                 @foreach ($repairsId as $repair)
                     <tr>
                         <td>
-                            {{ $repair->data_agendada }}
+                            {{ Carbon\Carbon::parse($repair->data_agendada)->format('d/m/Y') }}
                         </td>
                         <td>
                             {{ $repair->tipo_manutencao == 1 ? 'Preventiva' : 'Corretiva' }}
