@@ -20,7 +20,7 @@ class maintenanceController extends Controller
      */
     public function index()
     {
-        $dataMaintenance = $this->repository->requestDetaRepairs();
+        $dateMaintenance = $this->repository->requestDetaRepairs();
 
         return view('home', compact('dateMaintenance'));
     }
