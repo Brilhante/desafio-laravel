@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Repair;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 class maintenanceController extends Controller
 {
@@ -23,11 +20,7 @@ class maintenanceController extends Controller
      */
     public function index()
     {
-        $dateToday = Carbon::now()->format('Y-m-d');
-        $dateLast = Carbon::now()->addDay(7)->format('Y-m-d');
-        $dateMaintenance = DB::table('repairs')->where('user_id', Auth::user()->id)
-                            ->where('user_id',  Auth::user()->id)
-                            ->whereBetween('data_agendada', [$dateToday, $dateLast ])->get();
+        $dataMaintenance = $this->repository->requestDetaRepairs();
 
         return view('home', compact('dateMaintenance'));
     }

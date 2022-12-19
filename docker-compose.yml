@@ -13,9 +13,9 @@ services:
         working_dir: /var/www/
         volumes:
             - ./:/var/www
-        depends_on: 
-            - redis
-            - queue
+        # depends_on: 
+            # - redis
+            # - queue
         networks: 
             - laravel-eti
     
@@ -48,27 +48,27 @@ services:
             - laravel-eti
 
     # queue
-    queue:
-        build: 
-            args: 
-                user: alan
-                uid: 1000
-            context: ./
-            dockerfile: Dockerfile
-        restart: unless-stopped
-        command: "php artisan queue:work"
-        volumes: 
-            - ./:/var/www
-        depends_on: 
-            - redis
-        networks: 
-            - laravel-eti
+    # queue:
+    #     build: 
+    #         args: 
+    #             user: alan
+    #             uid: 1000
+    #         context: ./
+    #         dockerfile: Dockerfile
+    #     restart: unless-stopped
+    #     command: "php artisan queue:work"
+    #     volumes: 
+    #         - ./:/var/www
+    #     depends_on: 
+    #         - redis
+    #     networks: 
+    #         - laravel-eti
 
     # redis
-    redis:
-        image: redis:latest
-        networks: 
-            - laravel-eti
+    # redis:
+    #     image: redis:latest
+    #     networks: 
+    #         - laravel-eti
 
 networks: 
     laravel-eti:
