@@ -13,7 +13,7 @@ class Repair extends Model
     use HasFactory;
     protected $fillable = ['user_id', 'tipo_manutencao', 'modelo','data_agendada',];
 
-    public function requestDetaRepairs()
+    public function requestDataRepairs()
     {
         
         $dateToday = Carbon::now()->format('Y-m-d');
@@ -22,6 +22,12 @@ class Repair extends Model
                             ->where('user_id',  Auth::user()->id)
                             ->whereBetween('data_agendada', [$dateToday, $dateLast ])->get();
                             return $dateMaintenance;
+    }
+
+    public function requestRepairById()
+    {
+        $repairsId = Car::where('user_id',  Auth::user()->id)->paginate();
+        return $repairsId;
     }
 }
 

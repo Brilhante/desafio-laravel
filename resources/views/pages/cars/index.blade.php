@@ -49,7 +49,7 @@
             </table>
         </div>
         <div class="card-footer">
-            {!! $cars->links('vendor.pagination.bootstrap-4') !!}
+            {!! $carsId->links('vendor.pagination.bootstrap-4') !!}
         </div>
     </div>
 @stop

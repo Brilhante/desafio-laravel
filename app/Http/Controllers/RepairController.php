@@ -25,10 +25,10 @@ class RepairController extends Controller
      */
     public function index()
     {
-        $repairs = $this->repository->latest()->paginate();
-        $repairsId = Repair::where('user_id',  Auth::user()->id)->get();
+        
+        $repairsId = $this->repository->requestRepairById();
 
-        return view('pages.repairs.index', compact('repairs', 'repairsId'));
+        return view('pages.repairs.index', compact('repairsId'));
     }
 
    /**

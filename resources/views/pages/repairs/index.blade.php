@@ -49,7 +49,7 @@
             </table>
         </div>
         <div class="repaird-footer">
-            {!! $repairs->links('vendor.pagination.bootstrap-4') !!}
+            {!! $repairsId->links('vendor.pagination.bootstrap-4') !!}
         </div>
     </div>
 @stop

@@ -24,10 +24,10 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = $this->repository->latest()->paginate();
-        $carsId = Car::where('user_id',  Auth::user()->id)->get();
+        
+        $carsId = $this->repository->requestCarById();
 
-        return view('pages.cars.index', compact('cars', 'carsId'));
+        return view('pages.cars.index', compact('carsId'));
     }
 
    /**
